@@ -1,12 +1,12 @@
 <?php
 include('db.php');
 
-$sql = "SELECT path FROM travelimage";
+$sql = "SELECT path FROM travelimage ";
 $results = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($results);
 if (mysqli_num_rows($results) > 0) {
     while ($row = mysqli_fetch_array($results)) {
-        print_r($row);
+        print_r($row['path']);
     }
 }
 ?>
@@ -28,9 +28,7 @@ if (mysqli_num_rows($results) > 0) {
         <div class="profile  mt-5">
             <h2 class="text-center pt-1">My Favourites</h2>
             <div class="row">
-                <div class="col-md-4">
-
-                </div>
+                
             </div>
 
 
