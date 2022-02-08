@@ -1,15 +1,16 @@
 <?php
 // include('db.php');
 session_start();
+include 'db_conn.php';
+
 
 if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
 
-    // if (isset($_GET['id'])) {
-    //     $id = $_GET['id'];
-    //     $sql = "SELECT * From traveluser INNER JOIN traveluserdetails ON traveluser.UID=traveluserdetails.UID  where traveluser.UID='$id';";
-    //     $results = mysqli_query($conn, $sql);
-    //     $row = mysqli_fetch_array($results);
-    // }
+    $id = $_SESSION['user_id'];
+    $stmt = $conn->prepare("SELECT * From traveluser INNER JOIN traveluserdetails ON traveluser.UID=traveluserdetails.UID  where traveluser.UID='$id';");
+    $stmt->execute();
+    $row = $stmt->fetch();
+
 
 ?>
 
@@ -32,6 +33,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
                 <div class="detail pl-5 pr-5">
                     <div class="row">
                         <div class="col-md-6">
+                            <p>UserName: <?php echo $row['UserName'] ?></p>
                             <p>Email: <?php echo $row['Email'] ?></p>
                             <p>First Name: <?php echo $row['FirstName'] ?></p>
                             <p>Last Name: <?php echo $row['LastName'] ?></p>
