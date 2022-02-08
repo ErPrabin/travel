@@ -9,5 +9,9 @@
                     <a class="nav-link" href="favourite.php">My Favourate <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
+            <div>
+            <a class="nav-link btn btn-danger float-right" href="logout.php">Logout</a>
+
+            </div>
         </div>
     </nav>
